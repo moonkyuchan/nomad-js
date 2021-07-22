@@ -2,12 +2,21 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
 
+function deleteTodo(event) {
+  const deleteLiTag = event.target.parentElement;
+  deleteLiTag.remove();
+} // 여러가지 todolist들의 항목을 지정해서 삭제해주기 위해 target 설정
+
 function paintTodo(todoValue) {
   const liTag = document.createElement("li");
-  const spanTag = document.createElement("span");
-  liTag.appendChild(spanTag);
-  spanTag.innerText = todoValue;
   todoList.appendChild(liTag);
+  const spanTag = document.createElement("span");
+  const buttonTag = document.createElement("button");
+  liTag.appendChild(spanTag);
+  liTag.appendChild(buttonTag);
+  spanTag.innerText = todoValue;
+  buttonTag.innerText = "✖️";
+  buttonTag.addEventListener("click", deleteTodo);
 }
 
 function handleTodoSubmit(event) {

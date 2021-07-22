@@ -10,4 +10,3 @@ function showClock() {
 
 showClock();
 setInterval(showClock, 1000);
-3;
