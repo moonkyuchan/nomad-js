@@ -12,8 +12,7 @@ function pushTodoList() {
 function deleteTodo(event) {
   const deleteLiTag = event.target.parentElement;
   deleteLiTag.remove();
-  console.log(typeof deleteLiTag.id);
-  toDosArray = toDosArray.filter((el) => el.id !== parseInt(deleteLiTag.id));
+  toDosArray = toDosArray.filter((el) => el.id !== parseInt(deleteLiTag.id)); //filter는 정리 필요!
   pushTodoList();
 } // 여러가지 todolist들의 항목을 지정해서 삭제해주기 위해 target 설정
 
